@@ -97,4 +97,4 @@ cd backend
 
 <img src="https://github.com/iLeepop/EShop/blob/master/screenshots/cart.jpg" width="365" height="619"/> <img src="https://github.com/iLeepop/EShop/blob/master/screenshots/my.jpg" width="365" height="619"/>
 
-<img src="https://github.com/iLeepop/EShop/blob/master/screenshots/backend.jpg" width="365" height="619"/> 
+<img src="https://github.com/iLeepop/EShop/blob/master/screenshots/backend.jpg" width="100%"/> 
