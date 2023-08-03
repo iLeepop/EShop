@@ -93,8 +93,8 @@ cd backend
 
 # 部分截图
 
-### 确认订单页
+<img src="https://github.com/iLeepop/EShop/screenshots/index.jpg" width="365" height="619"/> <img src="https://github.com/iLeepop/EShop/screenshots/type.jpg" width="365" height="619"/>
 
-<img src="https://github.com/iLeepop/EShop/screenshots/confirm1.png" width="365" height="619"/> <img src="https://github.com/iLeepop/EShop/screenshots/confirmOrder.gif" width="365" height="619"/>
+<img src="https://github.com/iLeepop/EShop/screenshots/cart.jpg" width="365" height="619"/> <img src="https://github.com/iLeepop/EShop/screenshots/my.jpg" width="365" height="619"/>
 
-
+<img src="https://github.com/iLeepop/EShop/screenshots/backend.jpg" width="365" height="619"/> 
