@@ -1,0 +1,42 @@
+<view class="cates">
+
+  <SearchBar></SearchBar>
+
+  <view class="cates_container">
+    
+    <scroll-view scroll-y class="left_menu">
+      <view class="menu_list {{index == currentIndex ? 'active' : ''}}"
+      wx:for="{{ leftMenuList }}"
+      wx:key="*this"
+      data-index="{{index}}"
+      bindtap="handleMenuItemChange">{{item}}
+      </view>
+    </scroll-view>
+
+    <scroll-view scroll-y class="right_context" scroll-top="{{scrollTop}}">
+      <view class="productType"
+      wx:for="{{rightContext}}"
+      wx:for-item="productType"
+      wx:key="id">
+        <view class="title">
+          {{productType.name}}
+        </view>
+        <view class="product_list"
+          wx:for="{{productType.productList}}"
+          wx:for-item="product"
+          wx:key="id">
+            <navigator
+            url="/pages/product_detail/index?id={{product.id}}">
+              <image src="{{ baseUrl + '/image/hotImage/'+ product.proPic }}" mode="widthFix"/>
+              <view class="right">
+                <view class="product_name">{{product.name}}</view>
+                <view class="product_price">￥ {{product.price}}</view>
+              </view>
+            </navigator>
+          </view>
+      </view>
+    </scroll-view>
+
+
+  </view>
+</view>

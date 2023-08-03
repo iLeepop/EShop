@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ilee.elecshop.dao.ProductDao">
+
+    <resultMap id="productResult" type="com.ilee.elecshop.pojo.Product">
+        <association
+                property="smallType"
+                column="typeId"
+                select="com.ilee.elecshop.dao.SmallTypeDao.findById"
+                javaType="com.ilee.elecshop.pojo.SmallType"/>
+    </resultMap>
+    <insert id="add" parameterType="com.ilee.elecshop.pojo.Product">
+        insert into t_product
+        values(null,#{name},#{price},#{stock},#{proPic},
+               #{hot},#{swiper},#{swiperPic},#{swiperSort},
+               #{smallType.id},null,#{productIntroImgs},#{productParaImgs},#{description});
+    </insert>
+    <update id="edit" parameterType="com.ilee.elecshop.pojo.Product">
+        update t_product
+        <set>
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="price!=null">
+                price=#{price},
+            </if>
+            <if test="stock!=null">
+                stock=#{stock},
+            </if>
+            <if test="smallType!=null and smallType.id!=null">
+                typeId=#{smallType.id},
+            </if>
+            <if test="proPic!=null and proPic!=''">
+                proPic=#{proPic},
+            </if>
+            <if test="swiperSort!=null">
+                swiperSort=#{swiperSort},
+            </if>
+            <if test="swiperPic!=null and swiperPic!=''">
+                swiperPic=#{swiperPic},
+            </if>
+            <if test="description!=null and description!=''">
+                description=#{description},
+            </if>
+            <if test="productIntroImgs!=null and productIntroImgs!=''">
+                productIntroImgs=#{productIntroImgs},
+            </if>
+            <if test="productParaImgs!=null and productParaImgs!=''">
+                productParaImgs=#{productParaImgs},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+    <select id="getList" parameterType="map" resultMap="productResult">
+        select * from t_product
+        <where>
+            <if test="name != null and name != ''">
+                and name like concat('%',#{name},'%')
+            </if>
+        </where>
+        <if test="start != null and pageSize != null">
+            limit #{start},#{pageSize}
+        </if>
+    </select>
+    <select id="getTotal" parameterType="map" resultType="long">
+        select count(*) from t_product
+        <where>
+            <if test="name != null and name != ''">
+                and name like concat('%',#{name},'%')
+            </if>
+        </where>
+    </select>
+    <select id="one" parameterType="integer" resultMap="productResult">
+        select * from t_product where id=#{id}
+    </select>
+
+</mapper>
+

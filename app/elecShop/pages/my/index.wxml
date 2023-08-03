@@ -1,0 +1,40 @@
+<view class="user_info">
+  <view class="user_info_bg">
+    <view class="user_info_wrap">
+      <image src="{{userInfo.avatarUrl}}" mode=""/>
+      <view class="user_name">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+
+  <view class="user_menu">
+    <view class="order_wrap">
+
+      <view class="order_title">我的订单</view>
+      <view class="order_content">
+        <navigator 
+        wx:for="{{menu}}" 
+        wx:key="id" 
+        url="/pages/order/index?type={{item.type}}">
+          <view class="iconfont {{item.icon}}"></view>
+          <view class="order_name">{{item.name}}</view>
+        </navigator>
+      </view>
+    </view>
+    <view class="address_wrap" bindtap="handleEditAddress">
+      收货地址管理
+    </view>
+
+    <view class="app_info_wrap">
+      <view class="app_info_item app_info_contact">
+        <text>联系客服</text>
+        <text>400-699-12345</text>
+      </view>
+      <view class="app_info_item">
+        <button open-type="feedback" class="feedback">意见反馈</button>
+      </view>
+      <view class="app_info_item">
+        关于我们
+      </view>
+    </view>
+  </view>
+</view>

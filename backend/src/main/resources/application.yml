@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mail_v1?useSSL=false&useServerPrepStmts=true&serverTimezone=GMT%2B8&allowMultiQueries=true
+    username: root
+    password: lzhbbmm123
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    map-underscore-to-camel-case: false
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mybatis/dao/*xml
+
+weixin:
+  jscode2sessionUrl: https://api.weixin.qq.com/sns/jscode2session
+  appid: wxb84388c261d1ef68
+  secret: 6681d0e3476982060668a8b591b82190
+
+weixinpayconfig:
+  appid: wxb84388c261d1ef68 #小程序appid 微信分配的小程序ID
+  mch_id:  # 商户号 微信支付分配的商户号
+  key: # 商户密钥 微信支付商户平台API密钥
+  url: https://api.mch.weixin.qq.com/pay/unifiedorder #api请求地址
+  notify_url: https://2c23-222-184-165-54.ngrok.io/weeixinpay/notifyUrl #服务器异步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数
+
+bigTypeImagesFilePath: F://Ilee_Projects/weDev/eshopResources/bigType/
+productImagesFilePath: F://Ilee_Projects/weDev/eshopResources/hotImage/
+swiperImagesFilePath: F://Ilee_Projects/weDev/eshopResources/swiper/
+productSwiperImagesFilePath: F://Ilee_Projects/weDev/eshopResources/productSwiperImgs/
